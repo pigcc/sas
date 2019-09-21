@@ -23,6 +23,6 @@
     </dependency>
   </dependencies>
   <modules>
-    <module>file</module>
+    <module>sasc-file</module>
   </modules>
 </project>
