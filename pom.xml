@@ -69,5 +69,6 @@
 	<modules>
 		<module>sas-file</module>
 		<module>sas-core</module>
+		<module>sas-server</module>
 	</modules>
 </project>
