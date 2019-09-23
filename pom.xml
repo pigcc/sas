@@ -68,5 +68,6 @@
 	</dependencyManagement>
 	<modules>
 		<module>sas-file</module>
+		<module>sas-core</module>
 	</modules>
 </project>
