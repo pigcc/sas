@@ -1,4 +1,4 @@
-package org.sasc.file;
+package org.sas.file;
 
 /**
  * Hello world!

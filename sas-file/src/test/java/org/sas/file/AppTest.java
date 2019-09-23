@@ -1,4 +1,4 @@
-package org.sasc.file;
+package org.sas.file;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

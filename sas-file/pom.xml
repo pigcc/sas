@@ -7,8 +7,10 @@
     <artifactId>sas</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>sasc-file</artifactId>
-  <name>sasc-file</name>
+  <groupId>com.pingan</groupId>
+  <artifactId>sas-file</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>sas-file</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
