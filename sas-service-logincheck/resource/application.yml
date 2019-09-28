@@ -1,0 +1,33 @@
+mybatis-plus:
+  mapper-locations: classpath*:/orm/*Mapper.xml
+  type-aliases-package: org.sas.service.logincheck.com.entity
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8760/server/
+      
+server:
+  port: 8762
+  
+spring:
+  application:
+    name: service-logincheck
+    
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/sas?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
