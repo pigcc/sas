@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @author 18782
  *
  */
-@RestController(value="/login")
+@RestController
+@RequestMapping("/checklogin")
 public class LoginCheckController {
 
 	@Autowired
 	private BlackListService loginService;
 
-	@RequestMapping("/login")
+	@RequestMapping("loginBlackListCheck")
 	public Result<String> login(@RequestParam("uid")String uid) {
 		return loginService.loginCheck(uid);
 	}

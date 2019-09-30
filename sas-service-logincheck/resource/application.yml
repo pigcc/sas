@@ -5,7 +5,7 @@ mybatis-plus:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8760/server/
+      defaultZone: http://localhost:8760/eureka/
       
 server:
   port: 8762
@@ -28,6 +28,3 @@ spring:
 
 pagehelper:
   helper-dialect: mysql
-  reasonable: true
-  support-methods-arguments: true
-  params: count=countSql

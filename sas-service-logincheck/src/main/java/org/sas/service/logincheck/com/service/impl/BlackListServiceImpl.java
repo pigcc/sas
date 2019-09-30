@@ -17,9 +17,9 @@ public class BlackListServiceImpl implements BlackListService {
 	@Override
 	public Result<String> loginCheck(String uid) {
 		if(userMapper.selectCount(new QueryWrapper<BlackList>().eq("uid", uid))>0) {
-			return new Result<>(true);
+			return new Result<>(false, "該用戶位於黑名單，不允許登錄！");
 		}
-		return new Result<>(false, "該用戶位於黑名單，不允許登錄！");
+		return new Result<>(true);
 	}
 
 }

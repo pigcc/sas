@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author 18782
  *
  */
-@RestController(value="/login")
+@RestController
 public class LoginController {
 
 	@Autowired

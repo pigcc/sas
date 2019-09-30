@@ -16,7 +16,6 @@ public class BlackList implements Serializable{
 	@TableId(value = "id", type = IdType.AUTO)
 	private Integer id;
 	private String uid;
-	private int inBlackList;
 	public Integer getId() {
 		return id;
 	}
@@ -29,12 +28,4 @@ public class BlackList implements Serializable{
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	public int getInBlackList() {
-		return inBlackList;
-	}
-	public void setInBlackList(int inBlackList) {
-		this.inBlackList = inBlackList;
-	}
-	
-	
 }
