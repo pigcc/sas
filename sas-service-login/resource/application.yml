@@ -19,12 +19,16 @@ spring:
     name: test
     url: jdbc:mysql://127.0.0.1:3306/sas?useSSL=false
     username: root
-    password: 123456
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
     druid:
       initial-size: 5
       min-idle: 5
       max-active: 20
-
+  thymeleaf: 
+    encoding: utf-8
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
 pagehelper:
   helper-dialect: mysql

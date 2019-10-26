@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	 <meta charset="UTF-8" />
+	 <title>login</title>
+	 <script src="/js/jquery-3.4.1.js"  type="text/javascript"></script>
+	</head>
+	<body>
+		<div>
+			<h2 align="center" th:text="${platformName}"></h2>
+		</div>
+		
+		<form id="form">
+			<div style="margin-top:200px;text-align:center">
+				<div>
+					<span id="status" th:text="${status}"></span>
+				</div>
+				<input type="text" value="用户名"  id="uid" name='uid' ></br>
+				<input type="text" value="密码" id="password"/ name='password'> </br>
+				<input type="button" value="登录" id="dologin" />
+			</div>
+		</form>
+	</body>
+</html>
+<script>
+	$("#dologin").click(
+		function(){
+			var formData = new FormData($("#form")[0]);
+			var xhr = new XMLHttpRequest();
+			xhr.responseType="json";    
+		    xhr.onload=function(){//请求成功事件
+		        var  response=xhr.response;
+		        debugger;
+	        	if(!response.success){
+	        		if(response.status){
+	        			alert(response.message);
+	        		}else{
+	        			alert(response.msg);
+	        		}
+	        	}else{
+	        		window.location.href='index';
+	        	}
+		    }
+		    xhr.onerror=function(){//请求错误事件
+		        alert("請求失敗");
+		    }
+			xhr.open("POST", "dologin");
+			xhr.send(formData);			
+		}
+	);
+</script>

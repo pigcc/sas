@@ -1,5 +1,11 @@
 package org.sas.service.login.com.service.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.sas.core.util.Result;
 import org.sas.service.login.com.entity.User;
 import org.sas.service.login.com.mapper.UserMapper;
@@ -16,18 +22,34 @@ public class LoginServiceImpl implements LoginService {
 	private UserMapper userMapper;
 	@Autowired
 	private CheckLogin checkLogin;
+	@Autowired
+	private HttpServletRequest request;
 	@Override
-	public Result<String> login(String uid) {
+	public Result<String> login(String uid,String password) {
 		Result<String> result=null;
+		
 		result=checkLogin.loginBlackListCheck(uid);
 		if(!result.isSuccess()) {
 			return result;
 		}
-		int count=userMapper.selectCount(new QueryWrapper<User>().eq("uid", uid));
+		
+		Map<String, Object> queryMap=new HashMap<>();
+		queryMap.put("uid", uid);
+		queryMap.put("password", password);
+		int count=userMapper.selectCount(new QueryWrapper<User>().allEq(queryMap));
 		if(count==1) {
 			result=new Result<String>(true);
+			//創建session
+			createSession(uid);
+			return result;
 		}
-		return new Result<String>(false);
+		
+		result= new Result<String>(false,"用戶名或密碼錯誤");
+		return result;
 	}
-
+	private void createSession(String uid) {
+		HttpSession session=request.getSession();
+		session.setAttribute("uid", uid);
+		session.setMaxInactiveInterval(60*30);
+	}
 }
